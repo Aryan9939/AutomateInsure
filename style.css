@@ -1,0 +1,90 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: whitesmoke;
+}
+.div{
+    padding-left: 25px;
+    margin-left: 155px;
+    margin-right: 155px;  
+}
+button{
+    width: 250px;
+    height: 50px;
+    margin-top: 25px;
+    border-radius: 10px;
+}
+fieldset{
+    border-radius: 10px;
+    width: 100%;
+}
+div > input , div > select{
+    width: 100%;
+    height: 45px;
+    font-size: large;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-radius: 10px;
+}
+div > p{
+    font-size: large;
+    padding-left: 25px;
+}
+#header{
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+}
+#header_img {
+    width: 100%;
+    height: 350px;
+}
+#maindiv{
+    background-color: black;
+    color: blanchedalmond;
+    height: 150px;
+    width: 100%;
+    margin: 0px;
+    margin-top: 25px;
+    padding: 0px;
+    float: right;
+    cursor:pointer ;
+}
+#contact,#about,#social,#gallery{
+    float: left;
+    width: 25%;
+}
+#maindiv #contact a{
+    color: blanchedalmond;
+    text-decoration: none;
+}
+#copyright{
+    text-align: center;
+}
+.fa{
+    margin-right: 5px;
+    margin-left: 5px;
+    color: blanchedalmond;
+}
+#Existing_user{
+    position: relative;
+    float: right;
+    margin-right: 25px;
+}
+table{
+    margin-top: 42px;
+    width: 70%;
+    padding: 20px;
+    border-radius: 10px;
+    margin-left: 15%;
+    margin-right: 15%;
+    
+}
+tr , th{
+    border-color: blanchedalmond;
+}
+#sucessfull_message{
+    /* display: none; */
+    color: green;
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motor Insurance</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div id="header" class="div"><img id="header_img" src="i_Car-Insurance-Website-Header_full.jpg"></div>
+    <div id="Existing_user"><a href="#">Existing User</a></div>
+    <form action="" id="new_user_form" method="post">
+        <div class="div"><p>Registration Number</p> <input type="text" name = "vehicle_number" id="vehicle_number" required placeholder="eg: MH01RE0000"></div>
+    <div class="div" ><p>Vehicle Type</p> <select name="vehicle_type" >
+        <option value="" >Select your Vehicle</option>
+        <option value="Bike" >Bike</option>
+        <option value="Car(Commercial)" >Car (Commercial)</option>
+        <option value="Car(Personal)" >Car (Personal)</option>
+        <option value="Tractor" >Tractor</option>
+        <option value="Truck" >Truck</option>
+    </select></div>
+    <div class="div"><p>Registration Date</p> <input type="date" name = "vehicle_date" id="vehicle_date" required placeholder="eg: dd/mm/yyyy"></div>
+    <div class="div"><p>Engine Number</p> <input type="text" name = "engine_number" id="engine_number" required placeholder="eg: AA11EVWRT00000"></div>
+    <div class="div"><p>Owner First Name</p> <input type="text" name = "owner_first_name" id="owner_first_name" required placeholder="eg: Jhon"></div>
+    <div class="div"><p>Owner Last Name</p> <input type="text" name = "owner_last_name" id="owner_last_name" required placeholder="eg: Willam"></div><br>
+    <div class="div"><fieldset><legend>Gender</legend>
+        <br><input type="radio" name="gender" id="gender" value="Male">Male
+    <input type="radio" name="gender" id="gender" value="Female">Female</fieldset></div>
+    <div class="div"><p>Address</p> <input type="Address" name = "address" id="address" required placeholder="eg: Plot No. H2 , MG Road , Banglore , Karnataka , 2009165"></div>
+    <div class="div"><p>Mobile Number</p> <input type="number" name = "mobile_number" id="mobile_number" required placeholder="eg: 9789845334"></div>
+    <div class="div"><p>Email Address</p> <input type="email" name = "email" id="email" required placeholder="eg: jhon@gmail.com"></div>
+    <div class="div"><p>Nominee Name</p> <input type="text" name = "nominee_name" id="nominee_name" required placeholder="eg: Jhon"></div>
+    <div class="div"><p>Nominee Relation</p> <select name="nominee_relation" required>
+        <option value="" >Select RelationShip</option>
+        <option value="Son" >Son</option>
+        <option value="Wife" >Wife</option>
+        <option value="Daughter" >Daughter</option>
+        <option value="Parent" >Parents</option>
+        <option value="Husband" >Husband</option>
+    </select></div>
+    <div id="table">
+        <table border="1">
+            <tr>
+                <th>
+                    Vehicle Front Photo
+                </th>
+                <th>
+                    <input type="file" accept="image/*" name="image1" id="image_file" onchange="loadFile_front()" required>
+                </th>
+                <th>
+                    <img id="image_output_front" width="200" height="200" style="display: none;"/>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    Vehicle Back Photo
+                </th>
+                <th>
+                    <input type="file" accept="image/*" name="image2" id="image_file1" onchange="loadFile_back()" required>
+                </th>
+                <th>
+                    <img id="image_output_back" width="200" height="200" style="display: none;"/>
+                </th>
+            </tr>
+        </table>
+    </div>
+    <center><div class="div"><button name="button">Submit</button></div></center>
+    <center><div><p id="sucessfull_message"></p></div></center>
+    </form>
+</body>
+<footer>
+    <div id="maindiv">
+        <div id="contact"><u> Contact us </u><br><br>
+            <a href="#"> Email us: email@example.com </a><br><br>
+            Contact number: +258645786</div>
+        <div id="about">About us</div>
+        <div id="gallery">Gallery</div> 
+        <div id="social">Connect with us on social Media <br><br>
+            <a href="https://www.facebook.com/"target="_blank"><i class="fa fa-facebook"></i></a>|<a href="https://www.instagram.com/"target="_blank"><i class="fa fa-instagram"></i></a>|<a href="https://www.youtube.com/"target="_blank"><i class="fa fa-youtube"></i></a>|<a href="https://www.linkedin.com/feed/"target="_blank"><i class="fa fa-linkedin"></i></a>|<a href="https://twitter.com/home?lang=en-in" target="_blank"><i class="fa fa-twitter"></i></a></div>   
+    </div></footer>
+    <script>
+        var url = "https://script.google.com/macros/s/AKfycbyGxDjfuO2fkj0viuldH28ZbriZOGrFyXoBIrprNIt2LZPB6H-JMZrhMEc1UTz9w_eX/exec";
+        var form = document.getElementById('new_user_form');
+        form.addEventListener("submit" , (e)=>{
+            e.target.button.innerHTML = "Submitting...";
+            var d = new FormData(form);
+            fetch(url , {
+                method:"POST",
+                body:d
+            }).then((res)=>res.text())
+            .then((finalRes)=> {
+                e.target.button.innerHTML = "Submit";
+                form.reset();
+                document.getElementById("image_file1").
+                document.getElementById("sucessfull_message").innerHTML = finalRes;
+                setTimeout(()=> {
+                    document.getElementById("sucessfull_message").innerHTML = '';
+                } , 5000)
+            })
+            e.preventDefault();
+        })
+        var loadFile_front = function(image_front) {
+            var image = document.getElementById('image_output_front');
+            image.style.display = "block";
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
+        var loadFile_back = function(image_back){
+            var image = document.getElementById('image_output_back');
+            image.style.display = "block";
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
+        </script>
+</html>
+
+
+
+
+<!-- https://script.google.com/macros/s/AKfycbySyMLtl7WFbUzYAcTRE8OC0I5hNoMfgLXOdmmhiHOpLQIaYUb9EFmvFuI4-NQ5uAJU1g/exec -->
