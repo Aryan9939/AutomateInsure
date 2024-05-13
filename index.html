@@ -39,7 +39,7 @@
         <option value="Parent" >Parents</option>
         <option value="Husband" >Husband</option>
     </select></div>
-    <div id="table">
+<!--     <div id="table">
         <table border="1">
             <tr>
                 <th>
@@ -64,8 +64,8 @@
                 </th>
             </tr>
         </table>
-    </div>
-    <center><div class="div"><button name="button">Submit</button></div></center>
+    </div> -->
+    <center><div class="div"><button name="button">Continue To Payment ... </button></div></center>
     <center><div><p id="sucessfull_message"></p></div></center>
     </form>
 </body>
@@ -80,26 +80,26 @@
             <a href="https://www.facebook.com/"target="_blank"><i class="fa fa-facebook"></i></a>|<a href="https://www.instagram.com/"target="_blank"><i class="fa fa-instagram"></i></a>|<a href="https://www.youtube.com/"target="_blank"><i class="fa fa-youtube"></i></a>|<a href="https://www.linkedin.com/feed/"target="_blank"><i class="fa fa-linkedin"></i></a>|<a href="https://twitter.com/home?lang=en-in" target="_blank"><i class="fa fa-twitter"></i></a></div>   
     </div></footer>
     <script>
-        var url = "https://script.google.com/macros/s/AKfycbyGxDjfuO2fkj0viuldH28ZbriZOGrFyXoBIrprNIt2LZPB6H-JMZrhMEc1UTz9w_eX/exec";
-        var form = document.getElementById('new_user_form');
-        form.addEventListener("submit" , (e)=>{
-            e.target.button.innerHTML = "Submitting...";
-            var d = new FormData(form);
-            fetch(url , {
-                method:"POST",
-                body:d
-            }).then((res)=>res.text())
-            .then((finalRes)=> {
-                e.target.button.innerHTML = "Submit";
-                form.reset();
-                document.getElementById("image_file1").
-                document.getElementById("sucessfull_message").innerHTML = finalRes;
-                setTimeout(()=> {
-                    document.getElementById("sucessfull_message").innerHTML = '';
-                } , 5000)
-            })
-            e.preventDefault();
-        })
+        // var url = "https://script.google.com/macros/s/AKfycbyGxDjfuO2fkj0viuldH28ZbriZOGrFyXoBIrprNIt2LZPB6H-JMZrhMEc1UTz9w_eX/exec";
+        // var form = document.getElementById('new_user_form');
+        // form.addEventListener("submit" , (e)=>{
+        //     e.target.button.innerHTML = "Submitting...";
+        //     var d = new FormData(form);
+        //     fetch(url , {
+        //         method:"POST",
+        //         body:d
+        //     }).then((res)=>res.text())
+        //     .then((finalRes)=> {
+        //         e.target.button.innerHTML = "Submit";
+        //         form.reset();
+        //         document.getElementById("image_file1").
+        //         document.getElementById("sucessfull_message").innerHTML = finalRes;
+        //         setTimeout(()=> {
+        //             document.getElementById("sucessfull_message").innerHTML = '';
+        //         } , 5000)
+        //     })
+        //     e.preventDefault();
+        // })
         var loadFile_front = function(image_front) {
             var image = document.getElementById('image_output_front');
             image.style.display = "block";
